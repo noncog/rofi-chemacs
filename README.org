@@ -57,6 +57,10 @@
 #+HTML:</ul>
 #+HTML:</details>
 
+#+HTML:<ul>
+#+HTML:<li>Default theme: <a href="https://draculatheme.com/">Dracula</a>!</li>
+#+HTML:</ul>
+
 ** Requirements
 - =rofi= and =chemacs2=
 - Font based icons: default: [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
@@ -76,4 +80,10 @@
 
 The options you can change in each script are clearly marked in the comments.
 
-Additionally, make sure you complete all of the [[https://github.com/noncog/rofi-chemacs#requirements][requirements]] above.
+Additionally, make sure you complete all of the =requirements= above.
+** Rofi and Theming
+This script uses only one rofi config file =rofi-chemacs.rasi=, it is located in configs.
+
+
+
+
