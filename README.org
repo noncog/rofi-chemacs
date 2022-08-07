@@ -70,5 +70,10 @@
    - This install method allows you to version control rofi-chemacs into your rofi dotfiles, so it's available as soon as your dotfiles are installed.
      1. =cd $HOME/.config/rofi/=
      2. =git clone https://github.com/noncog/rofi-chemacs=
-     3. configure =rofi-chemacs.sh= and =configs.sh= then launch using preferred method. 
-  
+     3. configure =rofi-chemacs.sh= and =configs.sh= then launch using preferred method.
+** Configuration
+=rofi-chemacs= is designed to be easily configured from the top level script and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you will need to customize as well.
+
+The options you can change in each script are clearly marked in the comments.
+
+Additionally, make sure you complete all of the [[https://github.com/noncog/rofi-chemacs#requirements][requirements]] above.
