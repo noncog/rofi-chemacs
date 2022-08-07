@@ -3,7 +3,7 @@
 #+HTML: <p align="center"><img src="rofi-chemacs.png"/></p>
 #+HTML: <p align="center"><code>rofi-chemacs</code> is a GUI wrapper script for <a href="https://www.borgbackup.org/">chemacs2</a> using <a href="https://github.com/davatorium/rofi">rofi</a>. It manages profiles, daemons, and configs!</p>
 
-#+HTML:<h1>Features</h1>
+#+HTML:<h2>Features</h2>
 #+HTML:<p>The script is a complete wrapper for anything you could want to do with Chemacs and Emacs. It supports:</p>
 
 #+HTML:<details>
@@ -56,6 +56,12 @@
 #+HTML:</li>
 #+HTML:</ul>
 #+HTML:</details>
-* Usage
-* About
+
+** Requirements
+- =rofi= and =chemacs2=
+- Font based icons: default: [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
+- For use with daemons:
+  - must use =server-name= matching your profile name, in [[https://github.com/plexus/chemacs2#emacs-profilesel][chemacs profiles]] association list.
+- Must use $HOME or $XDG_CONFIG_HOME/chemacs (.config/chemacs) directory and associated file names for chemacs profile/profiles.
+  - These are the locations the script searches for your chemacs configs.
   
