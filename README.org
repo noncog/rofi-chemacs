@@ -71,7 +71,7 @@
   - These are the locations the script searches for your chemacs configs.
 - Must use the chemacs profile config.
   - =~/.emacs-profile= or =$XDG_CONFIG_HOME/chemacs/profile=
-  - DO NOT set your default in profiles config.
+  - DO NOT set your default in the profiles config.
 ** Installation
 1. Install dependencies.
 2. *Reccomended Install*:
@@ -82,7 +82,9 @@
 ** Configuration
 =rofi-chemacs= is designed to be easily configured from the top level script and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you will need to customize as well.
 
-The options you can change in each script are clearly marked in the comments.
+The options you can change in each script are clearly marked at the top in the comments.
+
+Make sure you configure them before using.
 
 Additionally, make sure you complete all of the =requirements= above.
 ** Rofi and Theming
@@ -102,4 +104,29 @@ To change the theme, just modify rofi config.
 - Launches using the default chemacs profile.
 - For use with an autostart script or window manager launch the daemon as normal:
   - =emacs --daemon=
+*** Set Default
+- This option works like this:
+  - Selects new default from profiles.
+  - Kills the daemon or instance of Emacs if it's running.
+  - If using daemon mode, launches a new daemon with the new default profile.
+
+This is done out of the assumption that if you're setting the default to a new profile, that's what you want to use now.
+- =NOTE= - There currently is not a save-buffer feature implemented, this is a hard kill. Don't switch your default profile if you're in the middle of working on something. Be warned.
+*** Kill Emacs
+- Kills both instances and daemons, without saving.
+*** use_emacsclint
+- This executes all commands where possible using the emacsclient and daemon.
+- If a daemon is running with a matching profile it will connect to, if not, makes an instance.
+  - Remember, the daemon only runs using the default profile, so selecting any non-default profile will always run as an instance.
+*** Start Daemon
+- Simply runs the daemon command using the default profile.
+- I will probably never allow running of multiple daemons for multiple profiles as this simply complicates the logic significantly and I see no reason why one user should be using two daemons and emacsclients at once.
+** Contributing
+Guide:
+1. Clone the repo and create a new branch:
+   =git checkout https://github.com/noncog/rofi-chemacs -b name_for_new_branch=
+2. Make changes and test.
+3. Submit pull request with comprehensive description of changes.
+
+I consider this script feature complete, but if you come up with something I'm missing, let me see it!
 
