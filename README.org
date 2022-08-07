@@ -66,6 +66,7 @@
 - Font based icons: default: [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
 - For use with daemons:
   - must use =server-name= matching your profile name, in [[https://github.com/plexus/chemacs2#emacs-profilesel][chemacs profiles]] association list.
+    - e.g. =("doom" . ((user-emacs-directory . "/opt/doom-emacs") (server-name . "doom")))=
 - Free to use either [[$XDG_CONFIG_HOME/chemacs (typically ~/.config/chemacs) ][chemacs config directories]]/file names. Recommend: $XDG_CONFIG_HOME/chemacs 
   - These are the locations the script searches for your chemacs configs.
 ** Installation
@@ -93,4 +94,5 @@ To change the theme, just modify rofi config.
 *** Icons
 - Just use any font-based icons you want. Place the icon glyphs in the string for the menu item.
 - If you want it to "just work" then install [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
+** About rofi-chemacs
 
