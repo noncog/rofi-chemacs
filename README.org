@@ -5,21 +5,21 @@
 
 #+HTML:<h1>Features</h1>
 #+HTML:<p>description</p>
-#+HTML:<defails>
+#+HTML:<details>
 #+HTML:<summary>Launching</summary>
 #+HTML:<p>stuff</p>
 #+HTML:</details>
 
-#+HTML:<defails>
+#+HTML:<details>
 #+HTML:<summary>Killing</summary>
 #+HTML:stuff
 #+HTML:</details>
 
-#+HTML:<defails>
+#+HTML:<details>
 #+HTML:<summary>Setting</summary>
 #+HTML:</details>
 
-#+HTML:<defails>
+#+HTML:<details>
 #+HTML:<summary>Editing</summary>
 #+HTML:</details>
 
