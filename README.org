@@ -4,7 +4,7 @@
 #+HTML: <p align="center"><code>rofi-chemacs</code> is a GUI wrapper script for <a href="https://www.borgbackup.org/">chemacs2</a> using <a href="https://github.com/davatorium/rofi">rofi</a>. It manages profiles, daemons, and configs!</p>
 
 #+HTML:<h1>Features</h1>
-#+HTML:<p>The script is a complete wrapper for anything you could want to do with Chemacs and Emacs.<br>It supports:</p>
+#+HTML:<p>The script is a complete wrapper for anything you could want to do with Chemacs and Emacs. It supports:</p>
 
 #+HTML:<details>
 #+HTML:<summary>Launching</summary>
