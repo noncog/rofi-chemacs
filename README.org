@@ -7,9 +7,9 @@
 #+HTML:<p>The script is a complete wrapper for anything you could want to do with Chemacs and Emacs. It supports:</p>
 
 #+HTML:<details>
-#+HTML:<summary>Launching</summary>
+#+HTML:<summary><b>Launching</b></summary>
 #+HTML:<ul>
-#+HTML:<li>The default Chemacs profile</li>
+#+HTML:<li>Default Chemacs profile</li>
 #+HTML:<li>
 #+HTML:Chemacs profiles
 #+HTML:<ul>
@@ -17,7 +17,7 @@
 #+HTML:</ul>
 #+HTML:</li>
 #+HTML:<li>
-#+HTML:The Emacs Daemon
+#+HTML:Emacs Daemon
 #+HTML:<ul>
 #+HTML:<li>Uses the default profile for the daemon.</li>
 #+HTML:</ul>
