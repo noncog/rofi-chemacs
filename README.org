@@ -33,7 +33,10 @@
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary>Setting</summary>
+#+HTML:<summary><b>Setting</b></summary>
+#+HTML:<ul>
+#+HTML:<li>Choose new Chemacs default profile from your profiles list</li>
+#+HTML:</ul>
 #+HTML:</details>
 
 #+HTML:<details>
