@@ -8,6 +8,21 @@
 
 #+HTML:<details>
 #+HTML:<summary>Launching</summary>
+#+HTML:<ul>
+#+HTML:<li>The default Chemacs profile</li>
+#+HTML:<li>
+#+HTML:Chemacs profiles
+#+HTML:<ul>
+#+HTML:<li>Automatically finds your Chemacs2 profiles!</li>
+#+HTML:</ul>
+#+HTML:</li>
+#+HTML:<li>
+#+HTML:The Emacs Daemon
+#+HTML:<ul>
+#+HTML:<li>Uses the default profile for the daemon.</li>
+#+HTML:</ul>
+#+HTML:</li>
+#+HTML:</ul>
 #+HTML:</details>
 
 #+HTML:<details>
