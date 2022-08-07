@@ -2,3 +2,8 @@
 #+HTML: <p align="center"><a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a> <a href="https://github.com/noncog/.dotfiles/blob/master/LICENSE"><img src="https://img.shields.io/github/license/noncog/rofi-borg?color=blue&style=flat-square" /></a></p>
 #+HTML: <p align="center"><img src="rofi-chemacs.png"/></p>
 #+HTML: <p align="center"><code>rofi-chemacs</code> is a GUI wrapper script for <a href="https://www.borgbackup.org/">chemacs2</a> using <a href="https://github.com/davatorium/rofi">rofi</a>. It manages profiles, daemons, and configs!</p>
+
+
+
+# features
+# testing comments
