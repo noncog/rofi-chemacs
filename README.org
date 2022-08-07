@@ -3,25 +3,23 @@
 #+HTML: <p align="center"><img src="rofi-chemacs.png"/></p>
 #+HTML: <p align="center"><code>rofi-chemacs</code> is a GUI wrapper script for <a href="https://www.borgbackup.org/">chemacs2</a> using <a href="https://github.com/davatorium/rofi">rofi</a>. It manages profiles, daemons, and configs!</p>
 
-#+HTML:<h1>Features</h1>
-#+HTML:The script is a complete wrapper for anything you could want to do with Chemacs and Emacs. It supports:
-#+HTML:<details>
-#+HTML:<summary>Launching</summary>
-#+HTML:<p>stuff</p>
-#+HTML:</details>
+* Features
+The script is a complete wrapper for anything you could want to do with Chemacs and Emacs.
 
-#+HTML:<details>
-#+HTML:<summary>Killing</summary>
-#+HTML:stuff
-#+HTML:</details>
-
-#+HTML:<details>
-#+HTML:<summary>Setting</summary>
-#+HTML:</details>
-
-#+HTML:<details>
-#+HTML:<summary>Editing</summary>
-#+HTML:</details>
+It currently supports:
+- Launching
+  - Default chemacs profile
+  - Chemacs profile selector
+    - Automatically finds your Chemacs2 profiles!
+  - Daemon
+    - Uses default profile.
+- Killing
+  - Instances and Daemons
+- Setting
+  - Able to set new Chemacs default profile
+- Editing
+  - Able to launch any configs you set (in configs.sh) in Emacs
+    - Included is a list of common configs, like Chemacs' profiles.
 
 
 
