@@ -62,6 +62,6 @@
 - Font based icons: default: [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
 - For use with daemons:
   - must use =server-name= matching your profile name, in [[https://github.com/plexus/chemacs2#emacs-profilesel][chemacs profiles]] association list.
-- Must use $HOME or $XDG_CONFIG_HOME/chemacs (.config/chemacs) directory and associated file names for chemacs profile/profiles.
+- Free to use either [[$XDG_CONFIG_HOME/chemacs (typically ~/.config/chemacs) ][chemacs config directory]]/file names. Reccomend: $XDG_CONFIG_HOME/chemacs (typically ~/.config/chemacs) 
   - These are the locations the script searches for your chemacs configs.
   
