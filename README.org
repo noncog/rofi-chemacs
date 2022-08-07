@@ -69,6 +69,9 @@
     - e.g. =("doom" . ((user-emacs-directory . "/opt/doom-emacs") (server-name . "doom")))=
 - Free to use either [[$XDG_CONFIG_HOME/chemacs (typically ~/.config/chemacs) ][chemacs config directories]]/file names. Recommend: $XDG_CONFIG_HOME/chemacs 
   - These are the locations the script searches for your chemacs configs.
+- Must use the chemacs profile config.
+  - =~/.emacs-profile= or =$XDG_CONFIG_HOME/chemacs/profile=
+  - DO NOT set your default in profiles config.
 ** Installation
 1. Install dependencies.
 2. *Reccomended Install*:
@@ -95,4 +98,8 @@ To change the theme, just modify rofi config.
 - Just use any font-based icons you want. Place the icon glyphs in the string for the menu item.
 - If you want it to "just work" then install [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
 ** About rofi-chemacs
+*** The Daemon
+- Launches using the default chemacs profile.
+- For use with an autostart script or window manager launch the daemon as normal:
+  - =emacs --daemon=
 
