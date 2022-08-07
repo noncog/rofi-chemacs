@@ -6,10 +6,12 @@
 #+HTML:<h1>Features</h1>
 #+HTML:<summary><h3>Launching</h3></summary>
 #+HTML:<defails>
+#+HTML:stuff
 #+HTML:</details>
 
 #+HTML:<summary><h3>Killing</h3></summary>
 #+HTML:<defails>
+#+HTML:stuff
 #+HTML:</details>
 
 #+HTML:<summary><h3>Setting</h3></summary>
