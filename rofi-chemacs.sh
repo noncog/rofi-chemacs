@@ -56,6 +56,21 @@ assemble_menu() {
     echo $start_daemon
 }
 
+kill_all_emacs() {
+    # can kill both client and daemon
+    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
+	killall emacs
+    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
+	if [[ -f "$HOME/.emacs-profile" ]]; then
+	    set -- $(<"$HOME/.emacs-profile")
+	    emacsclient -s "$1" -e "(kill-emacs)"
+	else
+	    set -- $(<"$chemacs_directory/profile")
+	    emacsclient -s "$1" -e "(kill-emacs)"
+	fi
+    fi
+}
+
 # menu items
 selection="$(assemble_menu | $rofi_command -no-click-to-exit -p "$prompt_message" -dmenu)"
 
@@ -85,8 +100,7 @@ else
 		if [[ -z "$new_default" ]]; then
 		    exit 0
 		else
-		    set -- $(<"$HOME/.emacs-profile")
-		    emacsclient -s "$1" -e "(kill-emacs)"
+		    kill_all_emacs
 		    echo $new_default > "$HOME/.emacs-profile"
 		fi
 	    else
@@ -94,8 +108,7 @@ else
 		if [[ -z "$new_default" ]]; then
 		    exit 0
 		else
-		    set -- $(<"$chemacs_directory/profile")
-		    emacsclient -s "$1" -e "(kill-emacs)"
+		    kill_all_emacs
 		    echo $new_default > $chemacs_directory/profile
 		fi
 	    fi
@@ -111,18 +124,7 @@ else
 	    exit 0
 	;;
 	$kill_emacs)
-	    # can kill both client and daemon
-	    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
-		killall emacs
-	    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
-		if [[ -f "$HOME/.emacs-profile" ]]; then
-		    set -- $(<"$HOME/.emacs-profile")
-		    emacsclient -s "$1" -e "(kill-emacs)"
-		else
-		    set -- $(<"$chemacs_directory/profile")
-		    emacsclient -s "$1" -e "(kill-emacs)"
-		fi		
-	    fi
+	    kill_all_emacs
 	    exit 0    
 	;;
 	$start_daemon)
