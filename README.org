@@ -2,37 +2,24 @@
 #+HTML: <p align="center"><a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a> <a href="https://github.com/noncog/.dotfiles/blob/master/LICENSE"><img src="https://img.shields.io/github/license/noncog/rofi-borg?color=blue&style=flat-square" /></a></p>
 #+HTML: <p align="center"><img src="rofi-chemacs.png"/></p>
 #+HTML: <p align="center"><code>rofi-chemacs</code> is a GUI wrapper script for <a href="https://www.borgbackup.org/">chemacs2</a> using <a href="https://github.com/davatorium/rofi">rofi</a>. It manages profiles, daemons, and configs!</p>
-* Features
-*** Launching
-- Default profile
-- Chemacs profile selector
-  - Automatically finds your Chemacs2 profiles!
-- Daemon
-  - Uses default profile.
-*** Killing
-- Instances and Daemons
-*** Setting
-- Able to set new Chemacs default profile
-*** Editing
-- Able to launch any configs you set (in configs.sh) in Emacs
-  - Included is a list of common configs, like chemacs config profiles.
+
+#+HTML:<h1>Features</h1>
+#+HTML:<summary><h3>Launching</h3></summary>
+#+HTML:<defails>
+#+HTML:</details>
+
+#+HTML:<summary><h3>Killing</h3></summary>
+#+HTML:<defails>
+#+HTML:</details>
+
+#+HTML:<summary><h3>Setting</h3></summary>
+#+HTML:<defails>
+#+HTML:</details>
+
+#+HTML:<summary><h3>Editing</h3></summary>
+#+HTML:<defails>
+#+HTML:</details>
+
+
 
   
-# features
-# usage
-
-# just download
-# put somewhere
-# configure
-# launch
-
-# launching
-# methods
-
-# from i3
-# how I use i3 example.
-
-# I'm thinking
-# Features
-# Usage
-# About
