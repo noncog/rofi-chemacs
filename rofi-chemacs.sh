@@ -19,13 +19,16 @@ use_emacsclient="y"
 # can optionally change the prompt message rofi shows
 prompt_message="Emacs"
 
+# distance from top of screen in pixels
+vertical_offset=57
+
 #=============#
 # script-vars #  DONT CHANGE
 #=============#
 
 config="${0##*/}"; config="${config%.*}.rasi"
 # to change location increase the -yoffset
-rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"
+rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset $vertical_offset -theme $directory/configs/$config"
 
 # define menu options
 default=" Default"
@@ -122,7 +125,7 @@ else
 	;;
 	$configurations)
 	    if [[ -f "$directory/scripts/configs.sh" ]]; then
-		bash "$directory/scripts/configs.sh" $directory $chemacs_directory $config $use_emacs $use_emacsclient
+		bash "$directory/scripts/configs.sh" $directory $chemacs_directory $config $use_emacs $use_emacsclient $vertical_offset
 	    else
 		err_msg "$configurations file not found"
 	    fi

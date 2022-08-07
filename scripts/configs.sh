@@ -38,7 +38,8 @@ chemacs_directory=$2
 config=$3
 use_emacs=$4
 use_emacsclient=$5
-rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"
+vertical_offset=$6
+rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset $vertical_offset -theme $directory/configs/$config"
 
 # error message
 err_msg() {
