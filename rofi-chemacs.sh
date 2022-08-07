@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -e
+
 #===========#
 # user-vars # CHANGE
 #===========#
@@ -66,14 +66,14 @@ kill_all_emacs() {
 	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
 		return
 	    else
-		killall emacs
+		killall emacs >/dev/null 2>/dev/null
 	    fi	    
 	else
 	    set -- $(<"$chemacs_directory/profile")
 	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
 		return
 	    else
-		killall emacs
+		killall emacs >/dev/null 2>/dev/null
 	    fi	    	    
 	fi
     fi
