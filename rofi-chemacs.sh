@@ -23,12 +23,8 @@ prompt_message="Emacs"
 vertical_offset=57
 
 #=============#
-# script-vars #  DONT CHANGE
+# script-vars #  CAN CHANGE ICON GLYPHS, nothing else
 #=============#
-
-config="${0##*/}"; config="${config%.*}.rasi"
-# to change location increase the -yoffset
-rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset $vertical_offset -theme $directory/configs/$config"
 
 # define menu options
 default=" Default"
@@ -36,6 +32,14 @@ set_default=" Set Default"
 configurations=" Configs"
 kill_emacs=" Kill Emacs"
 start_daemon=" Start Daemon"
+
+#=============#
+# script-vars #  DONT CHANGE
+#=============#
+
+config="${0##*/}"; config="${config%.*}.rasi"
+# to change location increase the -yoffset
+rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset $vertical_offset -theme $directory/configs/$config"
 
 # error message
 err_msg() {
