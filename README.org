@@ -64,4 +64,11 @@
   - must use =server-name= matching your profile name, in [[https://github.com/plexus/chemacs2#emacs-profilesel][chemacs profiles]] association list.
 - Free to use either [[$XDG_CONFIG_HOME/chemacs (typically ~/.config/chemacs) ][chemacs config directories]]/file names. Recommend: $XDG_CONFIG_HOME/chemacs 
   - These are the locations the script searches for your chemacs configs.
+** Installation
+1. Install dependencies.
+2. *Reccomended Install*:
+   - This install method allows you to version control rofi-chemacs into your rofi dotfiles, so it's available as soon as your dotfiles are installed.
+     1. =cd $HOME/.config/rofi/=
+     2. =git clone https://github.com/noncog/rofi-chemacs=
+     3. configure =rofi-chemacs.sh= and =configs.sh= then launch using preferred method. 
   
