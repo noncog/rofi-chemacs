@@ -84,7 +84,7 @@ else
 	    else
 		set -- $(<"$chemacs_directory/profile")
 	    fi
-	    emacsclient -c -s "$1" "${configs[index]#*=}" -a emacs &
+	    emacsclient -c -s "$1" "${configs[index]#*=}" -a emacs >/dev/null 2>/dev/null &
 	fi
     else
 	err_msg "$selection file not found."
