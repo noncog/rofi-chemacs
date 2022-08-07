@@ -26,7 +26,10 @@
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary>Killing</summary>
+#+HTML:<summary><b>Killing</b></summary>
+#+HTML:<ul>
+#+HTML:<li>Of instances and daemons</li>
+#+HTML:</ul>
 #+HTML:</details>
 
 #+HTML:<details>
