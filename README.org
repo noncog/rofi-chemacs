@@ -6,7 +6,7 @@
 #+HTML:<h1>Features</h1>
 #+HTML:<p>description</p>
 #+HTML:<details>
-#+HTML:<summary>Launching</summary>
+#+HTML:<summary><h3>Launching</h3></summary>
 #+HTML:<p>stuff</p>
 #+HTML:</details>
 
