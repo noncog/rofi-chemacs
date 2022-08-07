@@ -22,6 +22,12 @@
 #+HTML:<li>Uses the default profile for the daemon.</li>
 #+HTML:</ul>
 #+HTML:</li>
+#+HTML:<li>
+#+HTML:Support for instance (emacs) or client (emacsclient) commands
+#+HTML:<ul>
+#+HTML:<li>Set globally, all commands can use either form of launching.</li>
+#+HTML:</ul>
+#+HTML:</li>
 #+HTML:</ul>
 #+HTML:</details>
 
