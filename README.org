@@ -84,6 +84,13 @@ Additionally, make sure you complete all of the =requirements= above.
 ** Rofi and Theming
 This script uses only one rofi config file =rofi-chemacs.rasi=, it is located in configs.
 
+Because of this, the window position is controlled relative to the top of the screen by the variable in =rofi-chemacs.sh= called =vertical_offset= in pixels. Set this to your desired position.
 
-
+To change the theme, just modify rofi config.
+*** Font
+- By default the scripts’ rofi configs inherit the font from your global rofi config.rasi.
+- If you would like to set the font, uncomment the font line in the rofi config and change it to your desired font.
+*** Icons
+- Just use any font-based icons you want. Place the icon glyphs in the string for the menu item.
+- If you want it to "just work" then install [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]
 
