@@ -1,22 +1,34 @@
 #!/usr/bin/bash
 
-# TODO add a note that is only used for _ but otherwise the default profile file is found automatically and if it does not exist searchs here.
+#===========#
+# user-vars # CHANGE
+#===========#
+
+# this is only used if you do not use ~/.emacs-profiles.el and ~/.emacs-profile
+# if you have a different $XDG_CONFIG_HOME then change this to match
 chemacs_directory="$HOME/.config/chemacs"
 
 # must set your install directory
 directory="$HOME/projects/rofi-chemacs"
-# set which command you want to use.
+
+# set which command you want to use
+# these must be in opposition
 use_emacs="n"
-use_emacsclient="y" # these must be in opposition
+use_emacsclient="y"
 
-emacsclient_default_options="-c -a emacs"
-emacsclient_selected_profile_options="-c -a emacs"
-
+# must set the install directory of rofi-chemacs
 directory="$HOME/projects/rofi-chemacs"
+
+# can optionally change the prompt message rofi shows
 prompt_message="Emacs"
+
+#=============#
+# script-vars #  DONT CHANGE
+#=============#
+
 config="${0##*/}"; config="${config%.*}.rasi"
 # to change location increase the -yoffset
-rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"          # rofi config for menu
+rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"
 
 # define menu options
 default=" Default"
@@ -25,11 +37,12 @@ configurations=" Configs"
 kill_emacs=" Kill Emacs"
 start_daemon=" Start Daemon"
 
-# Error msg
+# error message
 err_msg() {
     rofi -theme "$directory/configs/error.rasi" -e "$1"
 }
 
+# create the main menu for passing into rofi
 assemble_menu() {
     echo $default
     if [[ -f "$HOME/.emacs-profiles" ]]; then
@@ -98,15 +111,18 @@ else
 	    exit 0
 	;;
 	$kill_emacs)
-	    # kills both client and daemon
-	    if [[ -f "$HOME/.emacs-profile" ]]; then
-		set -- $(<"$HOME/.emacs-profile")
-		emacsclient -s "$1" -e "(kill-emacs)"
-	    else
-		set -- $(<"$chemacs_directory/profile")
-		emacsclient -s "$1" -e "(kill-emacs)"		
+	    # can kill both client and daemon
+	    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
+		killall emacs
+	    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
+		if [[ -f "$HOME/.emacs-profile" ]]; then
+		    set -- $(<"$HOME/.emacs-profile")
+		    emacsclient -s "$1" -e "(kill-emacs)"
+		else
+		    set -- $(<"$chemacs_directory/profile")
+		    emacsclient -s "$1" -e "(kill-emacs)"
+		fi		
 	    fi
-	    #killall emacs
 	    exit 0    
 	;;
 	$start_daemon)
