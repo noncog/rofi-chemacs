@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+set -e
 #===========#
 # user-vars # CHANGE
 #===========#
@@ -63,10 +63,18 @@ kill_all_emacs() {
     elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
 	if [[ -f "$HOME/.emacs-profile" ]]; then
 	    set -- $(<"$HOME/.emacs-profile")
-	    emacsclient -s "$1" -e "(kill-emacs)"
+	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
+		return
+	    else
+		killall emacs
+	    fi	    
 	else
 	    set -- $(<"$chemacs_directory/profile")
-	    emacsclient -s "$1" -e "(kill-emacs)"
+	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
+		return
+	    else
+		killall emacs
+	    fi	    	    
 	fi
     fi
 }
@@ -86,10 +94,10 @@ else
 	    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
 		if [[ -f "$HOME/.emacs-profile" ]]; then
 		    set -- $(<"$HOME/.emacs-profile")
-		    emacsclient -c -s "$1" -a emacs &
+		    emacsclient -c -s "$1" -a emacs >/dev/null 2>/dev/null &
 		else
 		    set -- $(<"$chemacs_directory/profile")
-		    emacsclient -c -s "$1" -a emacs &
+		    emacsclient -c -s "$1" -a emacs >/dev/null 2>/dev/null &
 		fi
 	    fi
 	    exit 0
@@ -144,7 +152,7 @@ else
 	    set -- $(<"$chemacs_directory/profile")
 	fi
 	if [[ "$selection" == "$1" ]]; then
-	    emacsclient -c -s $selection -a "emacs --with-profile $selection" &
+	    emacsclient -c -s $selection -a "emacs --with-profile $selection" >/dev/null 2>/dev/null &
 	else
 	    emacs --with-profile $selection &
 	fi
