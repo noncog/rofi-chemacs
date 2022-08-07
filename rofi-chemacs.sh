@@ -16,9 +16,6 @@ directory="$HOME/projects/rofi-chemacs"
 use_emacs="n"
 use_emacsclient="y"
 
-# must set the install directory of rofi-chemacs
-directory="$HOME/projects/rofi-chemacs"
-
 # can optionally change the prompt message rofi shows
 prompt_message="Emacs"
 
