@@ -6,21 +6,21 @@
 #+HTML:<h1>Features</h1>
 #+HTML:The script is a complete wrapper for anything you could want to do with Chemacs and Emacs. It supports:
 #+HTML:<details>
-#+HTML:<summary><h3>Launching</h3></summary>
+#+HTML:<summary>Launching</summary>
 #+HTML:<p>stuff</p>
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary><h3>Killing</h3></summary>
+#+HTML:<summary>Killing</summary>
 #+HTML:stuff
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary><h3>Setting</h3></summary>
+#+HTML:<summary>Setting</summary>
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary><h3>Editing</h3></summary>
+#+HTML:<summary>Editing</summary>
 #+HTML:</details>
 
 
