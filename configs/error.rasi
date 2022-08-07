@@ -1,0 +1,44 @@
+/* Error message */
+
+* {
+    /* Dracula theme colour palette */
+    drac-bgd: #282a36;
+    drac-cur: #44475a;
+    drac-fgd: #f8f8f2;
+    drac-cmt: #6272a4;
+    drac-cya: #8be9fd;
+    drac-grn: #50fa7b;
+    drac-ora: #ffb86c;
+    drac-pnk: #ff79c6;
+    drac-pur: #bd93f9;
+    drac-red: #ff5555;
+    drac-yel: #f1fa8c;
+
+    //font: "Fira Code 12";
+
+    foreground: @drac-fgd;
+    background-color: @drac-bgd;
+    active-background: @drac-pnk;
+    urgent-background: @drac-red;
+    
+    selected-background: @active-background;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    separatorcolor: @active-background;
+    bordercolor: #6272a4;
+}
+
+window {
+    width:      			360px;
+    padding:    			25px;
+    border:					3px;
+    border-radius:          6px;
+    border-color:           @bordercolor;
+    location:               center;
+    y-offset:               -20px;
+}
+
+entry {
+    expand: 				false;
+    text-color:				@foreground;
+}
