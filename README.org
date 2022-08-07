@@ -35,12 +35,20 @@
 #+HTML:<details>
 #+HTML:<summary><b>Setting</b></summary>
 #+HTML:<ul>
-#+HTML:<li>Choose new Chemacs default profile from your profiles list</li>
+#+HTML:<li>Choose new Chemacs default profile from your configured profiles</li>
 #+HTML:</ul>
 #+HTML:</details>
 
 #+HTML:<details>
-#+HTML:<summary>Editing</summary>
+#+HTML:<summary><b>Editing</b></summary>
+#+HTML:<ul>
+#+HTML:<li>
+#+HTML:Able to launch any configs (set in configs.sh) in Emacs
+#+HTML:<ul>
+#+HTML:<li>Default has some common configs including Chemacs profiles!</li>
+#+HTML:</ul>
+#+HTML:</li>
+#+HTML:</ul>
 #+HTML:</details>
 * Usage
 * About
