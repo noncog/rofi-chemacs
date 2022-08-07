@@ -19,6 +19,7 @@ items=(
 )
 
 # configs for the items
+# these variable names and order should match the ones in the items array
 configs=(
     dunst="$HOME/.config/dunst/dunstrc"
     i3="$HOME/.config/i3/README.org"

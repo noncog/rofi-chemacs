@@ -120,7 +120,9 @@ else
 		    echo $new_default > $chemacs_directory/profile
 		fi
 	    fi
-	    emacs --daemon	    
+	    if [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
+		emacs --daemon
+	    fi
 	    exit 0
 	;;
 	$configurations)
