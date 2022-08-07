@@ -80,7 +80,7 @@
      2. =git clone https://github.com/noncog/rofi-chemacs=
      3. configure =rofi-chemacs.sh= and =configs.sh= then launch using preferred method.
 ** Configuration
-=rofi-chemacs= is designed to be easily configured from the top level script and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you will need to customize as well.
+=rofi-chemacs= is designed to be easily configured from the top level script =rofi-chemacs.sh= and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you will need to customize as well.
 
 The options you can change in each script are clearly marked at the top in the comments.
 
@@ -92,7 +92,7 @@ This script uses only one rofi config file =rofi-chemacs.rasi=, it is located in
 
 Because of this, the window position is controlled relative to the top of the screen by the variable in =rofi-chemacs.sh= called =vertical_offset= in pixels. Set this to your desired position.
 
-To change the theme, just modify rofi config.
+To change the theme, just modify the rofi config.
 *** Font
 - By default the scripts’ rofi configs inherit the font from your global rofi config.rasi.
 - If you would like to set the font, uncomment the font line in the rofi config and change it to your desired font.
@@ -114,13 +114,13 @@ This is done out of the assumption that if you're setting the default to a new p
 - =NOTE= - There currently is not a save-buffer feature implemented, this is a hard kill. Don't switch your default profile if you're in the middle of working on something. Be warned.
 *** Kill Emacs
 - Kills both instances and daemons, without saving.
-*** use_emacsclint
-- This executes all commands where possible using the emacsclient and daemon.
-- If a daemon is running with a matching profile it will connect to, if not, makes an instance.
-  - Remember, the daemon only runs using the default profile, so selecting any non-default profile will always run as an instance.
 *** Start Daemon
 - Simply runs the daemon command using the default profile.
 - I will probably never allow running of multiple daemons for multiple profiles as this simply complicates the logic significantly and I see no reason why one user should be using two daemons and emacsclients at once.
+*** use_emacsclient
+- This executes all commands where possible using the emacsclient and daemon.
+- If a daemon is running with a matching profile it will connect to it, if not, makes an instance.
+  - Remember, the daemon only runs using the default profile, so selecting any non-default profile will always run as an instance.
 ** Contributing
 Guide:
 1. Clone the repo and create a new branch:
