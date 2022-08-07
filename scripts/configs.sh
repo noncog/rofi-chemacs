@@ -1,13 +1,10 @@
 #!/bin/bash
 
-directory=$1
-chemacs_directory=$2
-config=$3
-use_emacs=$4
-use_emacsclient=$5
+#===========#
+# user-vars # CHANGE
+#===========#
 
-rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"          # rofi config for menu
-
+# can optionally change the prompt message rofi shows
 prompt_message="configs"
 
 # items
@@ -21,6 +18,7 @@ items=(
     cogmacs="Cogmacs"
 )
 
+# configs for the items
 configs=(
     dunst="$HOME/.config/dunst/dunstrc"
     i3="$HOME/.config/i3/README.org"
@@ -31,11 +29,23 @@ configs=(
     cogmacs="$HOME/.config/cogmacs/README.org"
 )
 
-# Error msg
+#=============#
+# script-vars #  DONT CHANGE
+#=============#
+
+directory=$1
+chemacs_directory=$2
+config=$3
+use_emacs=$4
+use_emacsclient=$5
+rofi_command="rofi -no-fixed-num-lines -location 2 -yoffset 57 -theme $directory/configs/$config"
+
+# error message
 err_msg() {
     rofi -theme "$directory/configs/error.rasi" -e "$1"
 }
 
+# create the main menu for passing into rofi
 assemble_menu() {
     declare -A menu
     declare -a order
@@ -49,6 +59,7 @@ assemble_menu() {
     done
 }
 
+# launch the rofi menu
 selection="$(assemble_menu | $rofi_command -no-click-to-exit -p "$prompt_message" -dmenu)"
 
 # check if selection was empty
