@@ -88,6 +88,7 @@ Make sure you configure them before using.
 
 Additionally, make sure you complete all of the =requirements= above.
 *** Using with $EDITOR env Variable
+This allows you to automatically use the default profile with $EDITOR.
 #+BEGIN_SRC
 export EDITOR="emacsclient -c -s $(cat $HOME/.config/chemacs/profile)"
 export VISUAL=$EDITOR
