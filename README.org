@@ -87,6 +87,11 @@ The options you can change in each script are clearly marked at the top in the c
 Make sure you configure them before using.
 
 Additionally, make sure you complete all of the =requirements= above.
+*** Using with $EDITOR env Variable
+#+BEGIN_SRC
+export EDITOR="emacsclient -c -s $(cat $HOME/.config/chemacs/profile)"
+export VISUAL=$EDITOR
+#+END_SRC
 ** Rofi and Theming
 This script uses only one rofi config file =rofi-chemacs.rasi=, it is located in configs.
 
