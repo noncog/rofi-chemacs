@@ -9,12 +9,10 @@
 chemacs_directory="$HOME/.config/chemacs"
 
 # must set your install directory
-directory="$HOME/projects/rofi-chemacs"
+directory="$HOME/.config/rofi/rofi-chemacs"
 
-# set which command you want to use
-# these must be in opposition
-use_emacs="n"
-use_emacsclient="y"
+# set which command you want to use to launch, emacs or emacsclient and it's daemon.
+use_daemon="y"
 
 # can optionally change the prompt message rofi shows
 prompt_message="Emacs"
@@ -50,9 +48,9 @@ err_msg() {
 assemble_menu() {
     echo $default
     if [[ -f "$HOME/.emacs-profiles" ]]; then
-	grep -Po '[^"]+(?=" . \()' $HOME/.emacs-profiles.el
+        grep -Po '[^"]+(?=" . \()' $HOME/.emacs-profiles.el
     else
-	grep -Po '[^"]+(?=" . \()' $chemacs_directory/profiles.el
+        grep -Po '[^"]+(?=" . \()' $chemacs_directory/profiles.el
     fi
     echo $set_default
     echo $configurations
@@ -60,107 +58,119 @@ assemble_menu() {
     echo $start_daemon
 }
 
-kill_all_emacs() {
-    # can kill both client and daemon
-    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
-	killall emacs
-    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
-	if [[ -f "$HOME/.emacs-profile" ]]; then
-	    set -- $(<"$HOME/.emacs-profile")
-	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
-		return
-	    else
-		killall emacs >/dev/null 2>/dev/null
-	    fi	    
-	else
-	    set -- $(<"$chemacs_directory/profile")
-	    if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
-		return
-	    else
-		killall emacs >/dev/null 2>/dev/null
-	    fi	    	    
-	fi
+# checks user config file locations
+set_configs_directory() {
+    if [[ -f "$HOME/.emacs-profile" ]]; then
+        config_directory=$HOME
+        profile=".emacs-profile"
+    else
+        config_directory=$chemacs_directory
+        profile="profile"
     fi
 }
 
-# menu items
+kill_all_emacs() {
+# can kill both client and daemon
+
+    # check for daemon usage
+    if [[ "$use_daemon" == "y" ]]; then
+        # check if using home directory configs
+        if [[ -f "$HOME/.emacs-profile" ]]; then
+            set -- $(<"$HOME/.emacs-profile")
+            # if kill succesful, return
+            if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
+                return 0
+            # if fail, run global kill command
+            else
+                killall emacs >/dev/null 2>/dev/null
+            fi
+        else
+            # use chemacs directory config
+            set -- $(<"$chemacs_directory/profile")
+            # if kill succesful, return
+            if emacsclient -s "$1" -e "(kill-emacs)" >/dev/null 2>/dev/null; then
+                return 0
+            # if fail, run global kill command
+            else
+                killall emacs >/dev/null 2>/dev/null
+            fi
+        fi
+    fi
+}
+
+# main menu
 selection="$(assemble_menu | $rofi_command -no-click-to-exit -p "$prompt_message" -dmenu)"
 
 # if selection was empty, do nothing
 if [[ -z "$selection" ]]; then
     exit 0
 else
-    # check for known variable options
+    # check for 'known' variable menu options
     case $selection in
-	$default)
-	    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
-		emacs &
-	    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
-		if [[ -f "$HOME/.emacs-profile" ]]; then
-		    set -- $(<"$HOME/.emacs-profile")
-		    emacsclient -c -s "$1" -a emacs >/dev/null 2>/dev/null &
-		else
-		    set -- $(<"$chemacs_directory/profile")
-		    emacsclient -c -s "$1" -a emacs >/dev/null 2>/dev/null &
-		fi
-	    fi
-	    exit 0
-	;;
-	$set_default)
-	    if [[ -f "$HOME/.emacs-profile" ]]; then
-		new_default="$(grep -Po '[^"]+(?=" . \()' $HOME/.emacs-profiles.el |  $rofi_command -no-click-to-exit -p "$prompt_message" -dmenu)"
-		if [[ -z "$new_default" ]]; then
-		    exit 0
-		else
-		    kill_all_emacs
-		    echo $new_default > "$HOME/.emacs-profile"
-		fi
-	    else
-		new_default="$(grep -Po '[^"]+(?=" . \()' $chemacs_directory/profiles.el |  $rofi_command -no-click-to-exit -p "$prompt_message" -dmenu)"
-		if [[ -z "$new_default" ]]; then
-		    exit 0
-		else
-		    kill_all_emacs
-		    echo $new_default > $chemacs_directory/profile
-		fi
-	    fi
-	    if [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
-		emacs --daemon
-	    fi
-	    exit 0
-	;;
-	$configurations)
-	    if [[ -f "$directory/scripts/configs.sh" ]]; then
-		bash "$directory/scripts/configs.sh" $directory $chemacs_directory $config $use_emacs $use_emacsclient $vertical_offset
-	    else
-		err_msg "$configurations file not found"
-	    fi
-	    exit 0
-	;;
-	$kill_emacs)
-	    kill_all_emacs
-	    exit 0    
-	;;
-	$start_daemon)
-	    # daemon is launched using the default profile
-	    emacs --daemon
-	    exit 0
-	;;
+    $default)
+        if [[ "$use_daemon" == "y" ]]; then
+            set_configs_directory
+            set -- $(<"$config_directory/$profile")
+            emacsclient -c -s "$1" -a emacs >/dev/null 2>/dev/null &
+        else
+            emacs &
+        fi
+        exit 0
+    ;;
+    $set_default)
+        # set correct user config directory
+        if [[ -f "$HOME/.emacs-profile" ]]; then
+            config_directory=$HOME
+        else
+            config_directory=$chemacs_directory
+        fi
+        # select new default profile from correct config file
+        new_default="$(grep -Po '[^"]+(?=" . \()' $config_directory/profiles.el |  $rofi_command -no-click-to-exit -p "Default" -dmenu)"
+        # check if selection was empty/canceled
+        if [[ -z "$new_default" ]]; then
+            exit 0
+        else
+            # stop emacs
+            kill_all_emacs
+            # set new default
+            echo $new_default > "$config_directory/.emacs-profile"
+        fi
+        # relaunch daemon if using it, with new default profile
+        if [[ "$use_daemon" == "y" ]]; then
+            emacs --daemon
+        fi
+        exit 0
+    ;;
+    $configurations)
+        # make sure configs script exists and run it
+        if [[ -f "$directory/scripts/configs.sh" ]]; then
+            bash "$directory/scripts/configs.sh" $directory $chemacs_directory $config $use_daemon $vertical_offset
+        else
+            err_msg "$configurations file not found."
+        fi
+        exit 0
+    ;;
+    $kill_emacs)
+        kill_all_emacs
+        exit 0
+    ;;
+
+    $start_daemon)
+        # daemon is launched using the default profile
+        emacs --daemon
+        exit 0
+    ;;
     esac
-    
-    # if no known variables launched, must be a profile, launch it using desired method.
-    if [[ "$use_emacs" == "y" ]] && [[ "$use_emacsclient" == "n" ]]; then
-	emacs --with-profile $selection &
-    elif [[ "$use_emacs" == "n" ]] && [[ "$use_emacsclient" == "y" ]]; then
-	if [[ -f "$HOME/.emacs-profile" ]]; then
-	    set -- $(<"$HOME/.emacs-profile")
-	else
-	    set -- $(<"$chemacs_directory/profile")
-	fi
-	if [[ "$selection" == "$1" ]]; then
-	    emacsclient -c -s $selection -a "emacs --with-profile $selection" >/dev/null 2>/dev/null &
-	else
-	    emacs --with-profile $selection &
-	fi
-    fi    
+
+    # if no 'known' menu options launched, must be a profile, launch it using desired method
+
+    # set correct user config directory
+    set_configs_directory
+    set -- $(<"$config_directory/$profile")
+    # launch profile using desired method
+    if [[ "$use_daemon" == "y" ]]; then
+        emacsclient -c -s $selection -a "emacs --with-profile $selection" >/dev/null 2>/dev/null &
+    else
+        emacs --with-profile $selection &
+    fi
 fi
