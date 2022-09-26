@@ -15,19 +15,17 @@ items=(
     picom="Picom"
     kitty="Kitty"
     chemacs="Chemacs"
-    cogmacs="Cogmacs"
 )
 
 # configs for the items
 # these variable names and order should match the ones in the items array
 configs=(
     dunst="$HOME/.config/dunst/dunstrc"
-    i3="$HOME/.config/i3/README.org"
+    i3="$HOME/.config/i3/config"
     polybar="$HOME/.config/polybar/config"
     picom="$HOME/.config/picom/picom.conf"
     kitty="$HOME/.config/kitty/kitty.conf"
     chemacs="$HOME/.config/chemacs/profiles.el"
-    cogmacs="$HOME/.config/cogmacs/README.org"
 )
 
 #=============#
