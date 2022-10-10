@@ -58,7 +58,7 @@
 #+HTML:</details>
 
 #+HTML:<ul>
-#+HTML:<li>Default theme: <a href="https://draculatheme.com/">Dracula</a>!</li>
+#+HTML:<li>Default theme: <a href="https://draculatheme.com/">Dracula</a>! Please submit more!</li>
 #+HTML:</ul>
 
 ** Requirements
@@ -80,7 +80,7 @@
      2. =git clone https://github.com/noncog/rofi-chemacs=
      3. configure =rofi-chemacs.sh= and =configs.sh= then launch using preferred method.
 ** Configuration
-=rofi-chemacs= is designed to be easily configured from the top level script =rofi-chemacs.sh= and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you will need to customize as well.
+=rofi-chemacs= is designed to be easily configured from the top level script =rofi-chemacs.sh= and the main settings are passed into subsequent scripts. In this case, there is only one: =configs.sh=, which you may want to customize as well.
 
 The options you can change in each script are clearly marked at the top in the comments.
 
@@ -96,12 +96,12 @@ export VISUAL=$EDITOR
 ** Rofi and Theming
 This script uses only one rofi config file =rofi-chemacs.rasi=, it is located in configs.
 
-Because of this, the window position is controlled relative to the top of the screen by the variable in =rofi-chemacs.sh= called =vertical_offset= in pixels. Set this to your desired position.
+Because of this, the menus are centered and the position is set relative to the top of the screen by the variable =vertical_offset= located in =rofi-chemacs.sh=. This should be an integer representing your desired pixel offset.
 
 To change the theme, just modify the rofi config.
 *** Font
-- By default the scripts’ rofi configs inherit the font from your global rofi config.rasi.
-- If you would like to set the font, uncomment the font line in the rofi config and change it to your desired font.
+- By default the scripts’ rofi config inherits the font from your global rofi config.rasi.
+- If you would like to explicitly set the font, uncomment the font line in rofi-chemacs.rasi and set your desired font.
 *** Icons
 - Just use any font-based icons you want. Place the icon glyphs in the string for the menu item.
 - If you want it to "just work" then install [[https://github.com/FortAwesome/Font-Awesome/releases/tag/5.15.4][Font Awesome 5]]

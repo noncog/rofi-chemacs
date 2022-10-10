@@ -26,8 +26,8 @@ vertical_offset=57
 
 # define menu options
 default=" Default"
-set_default=" Set Default"
 configurations=" Configs"
+set_default=" Set Default"
 start_daemon=" Start Daemon"
 kill_emacs=" Kill Emacs"
 
