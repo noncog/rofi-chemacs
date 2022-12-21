@@ -88,7 +88,7 @@ Make sure you configure them before using.
 
 Additionally, make sure you complete all of the =requirements= above.
 *** Using with $EDITOR env Variable
-This allows you to automatically use the default profile with $EDITOR.
+The =EDITOR= and =VISUAL= environment variables allow you to use Emacs as your system text editor. This is useful for commands like =git commit=. Especially using [[https://magit.vc/][Magit]]. To launch the default Chemacs profile using the Emacs daemon, use something like the following.
 #+BEGIN_SRC
 export EDITOR="emacsclient -c -s $(cat $HOME/.config/chemacs/profile)"
 export VISUAL=$EDITOR
